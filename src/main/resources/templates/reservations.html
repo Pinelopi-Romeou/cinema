@@ -52,10 +52,6 @@
     <div class="row justify-content-center text-align-center">
         <div th:each="reservation : ${reservations}" class="row reservation text-center mb-2">
             <div>
-                <span>ID: </span>
-                <span th:text="${reservation.id}"></span>
-            </div>
-            <div>
                 <span>Registered At: </span>
                 <span th:text="${reservation.registeredAt}"></span>
             </div>
@@ -63,17 +59,25 @@
                 <span>Screening ID: </span>
                 <span th:text="${reservation.screening.id}"></span>
             </div>
-            <div th:each="user: ${reservation}">
-                <div>
-                    <span>User: </span>
-                    <span th:text="${user.id}"></span>
-                </div>
+            <div>
+                <span>Screening price: </span>
+                <span th:text="${reservation.screening.price}"></span>
             </div>
-            <div th:each="show: ${reservation.screening}">
-                <div>
-                    <span>Show: </span>
-                    <span th:text="${show}"></span>
-                </div>
+            <div>
+                <span>Show title: </span>
+                <span th:text="${reservation.screening.show.title}"></span>
+            </div>
+            <div>
+                <span>User ID: </span>
+                <span th:text="${reservation.user.id}"></span>
+            </div>
+            <div>
+                <span>Username: </span>
+                <span th:text="${reservation.user.username}"></span>
+            </div>
+            <div>
+                <span>User email: </span>
+                <span th:text="${reservation.user.email}"></span>
             </div>
         </div>
     </div>

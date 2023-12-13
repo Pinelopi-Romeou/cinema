@@ -6,12 +6,12 @@ import java.util.List;
 public class ShowDTO extends BaseDTO {
 
     private final String title;
-    private final String description;
-    private final String duration;
-    private final String director;
-    private final String genre;
-    private final String language;
-    private final String imageName;
+    private String description;
+    private String duration;
+    private String director;
+    private String genre;
+    private String language;
+    private String imageName;
     private List<ScreeningDTO> screenings = new ArrayList<>();
     private List<UserDTO> likes = new ArrayList<>();
 
@@ -24,6 +24,11 @@ public class ShowDTO extends BaseDTO {
         this.genre = genre;
         this.language = language;
         this.imageName = imageName;
+    }
+
+    public ShowDTO(Long id, String title) {
+        super(id);
+        this.title = title;
     }
 
     public String getTitle() {

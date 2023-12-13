@@ -9,25 +9,14 @@ import java.time.LocalDateTime;
 
 public class ReservationDTO {
 
-    private ReservationId id;
-    private LocalDateTime registeredAt;
-    private ScreeningDTO screening;
-    private UserDTO user;
+    private final LocalDateTime registeredAt;
+    private final ScreeningDTO screening;
+    private final UserDTO user;
 
-    public ReservationDTO(ReservationId id, LocalDateTime registeredAt, ScreeningDTO screening, UserDTO user) {
-        this.id = id;
+    public ReservationDTO(LocalDateTime registeredAt, ScreeningDTO screening, UserDTO user) {
         this.registeredAt = registeredAt;
         this.screening = screening;
         this.user = user;
-    }
-
-    public ReservationDTO(LocalDateTime registeredAt, ScreeningDTO screening) {
-        this.registeredAt = registeredAt;
-        this.screening = screening;
-    }
-
-    public ReservationId getId() {
-        return id;
     }
 
     public LocalDateTime getRegisteredAt() {

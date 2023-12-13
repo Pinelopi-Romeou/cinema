@@ -24,8 +24,10 @@ public class UserDTO extends BaseDTO {
         this.email = email;
     }
 
-    public UserDTO(Long id) {
+    public UserDTO(Long id, String username, String email) {
         super(id);
+        this.username = username;
+        this.email = email;
     }
 
     public String getFirstname() {

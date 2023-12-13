@@ -2,11 +2,9 @@ package com.example.democinema.service;
 
 import com.example.democinema.dto.ReservationDTO;
 import com.example.democinema.dto.ScreeningDTO;
+import com.example.democinema.dto.ShowDTO;
 import com.example.democinema.dto.UserDTO;
-import com.example.democinema.model.Reservation;
-import com.example.democinema.model.ReservationId;
-import com.example.democinema.model.Screening;
-import com.example.democinema.model.User;
+import com.example.democinema.model.*;
 import com.example.democinema.repository.ReservationRepository;
 import com.example.democinema.repository.ScreeningRepository;
 import com.example.democinema.repository.UserRepository;
@@ -67,18 +65,18 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     private ScreeningDTO map(Screening screening) {
-        return new ScreeningDTO(screening.getId());
+        return new ScreeningDTO(screening.getId(), screening.getDateTime(), screening.getPrice(), map(screening.getShow()));
     }
 
     private ReservationDTO map(Reservation reservation) {
-        return new ReservationDTO(reservation.getId(), reservation.getRegisteredAt(), map(reservation.getScreening()), map(reservation.getUser()));
+        return new ReservationDTO(reservation.getRegisteredAt(), map(reservation.getScreening()), map(reservation.getUser()));
     }
 
-//    private ReservationDTO mapReservations(Reservation reservation) {
-//        return new ReservationDTO(reservation.getRegisteredAt(), map(reservation.getScreening()));
-//    }
-
     private UserDTO map(User user) {
-        return new UserDTO(user.getId());
+        return new UserDTO(user.getId(), user.getUsername(), user.getEmail());
+    }
+
+    private ShowDTO map(Show show) {
+        return new ShowDTO(show.getId(), show.getTitle());
     }
 }

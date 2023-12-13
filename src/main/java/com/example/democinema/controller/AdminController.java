@@ -33,9 +33,7 @@ public class AdminController {
     @GetMapping("/admin/reservations")
     public String getAllReservations(Model model) {
         List<ReservationDTO> reservations = reservationService.getAllReservations();
-        List<UserDTO> users = userService.getAllUsers();
         model.addAttribute("reservations", reservations);
-        model.addAttribute("users", users);
         return "reservations";
     }
 }

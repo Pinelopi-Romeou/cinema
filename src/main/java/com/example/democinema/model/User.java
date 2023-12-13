@@ -28,6 +28,9 @@ public class User {
     @Column(name = "PASSWORD", nullable = false)
     private String password;
 
+    @Column(name = "ROLE")
+    private UserRole role;
+
     @ManyToMany
     @JoinTable(
             name = "LIKED_SHOWS",
@@ -108,6 +111,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
     }
 
     public List<Show> getLikedShows() {

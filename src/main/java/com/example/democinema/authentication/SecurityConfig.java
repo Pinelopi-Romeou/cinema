@@ -29,6 +29,7 @@ public class SecurityConfig {
         http.cors().and().csrf().disable()
                 .authorizeRequests().antMatchers("/login").permitAll()
                 .antMatchers(HttpMethod.POST, "/users").permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/register").permitAll()
                 .antMatchers("/", "/shows", "/show").permitAll()
                 .anyRequest().authenticated()

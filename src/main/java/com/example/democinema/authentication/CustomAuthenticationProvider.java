@@ -21,6 +21,8 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     private final PasswordEncoder passwordEncoder;
 
+    private static final String ROLE = "ROLE_";
+
     @Autowired
     public CustomAuthenticationProvider(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
@@ -35,7 +37,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new BadCredentialsException("bad credentials");
         }
-        return new UsernamePasswordAuthenticationToken(user.getUsername(), password, Collections.emptyList());
+        return new UsernamePasswordAuthenticationToken(user.getUsername(), password, Collections.singleton(() -> ROLE + user.getRole().name()));
     }
 
     @Override

@@ -21,10 +21,6 @@ public class ScreeningDTO extends BaseDTO {
         this.price = price;
     }
 
-    public ScreeningDTO(Long id) {
-        super(id);
-    }
-
     public Date getDateTime() {
         return dateTime;
     }

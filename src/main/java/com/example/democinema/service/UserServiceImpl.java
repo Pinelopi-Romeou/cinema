@@ -1,10 +1,7 @@
 package com.example.democinema.service;
 
 import com.example.democinema.dto.*;
-import com.example.democinema.model.Reservation;
-import com.example.democinema.model.Screening;
-import com.example.democinema.model.Show;
-import com.example.democinema.model.User;
+import com.example.democinema.model.*;
 import com.example.democinema.repository.ShowRepository;
 import com.example.democinema.repository.UserRepository;
 import com.example.democinema.service.exceptions.EntityNotFoundException;
@@ -37,6 +34,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO insertUser(UserInsertDTO dto) {
         User user = map(dto);
+        user.setRole(UserRole.USER);
         userRepository.save(user);
 
         return map(user);
