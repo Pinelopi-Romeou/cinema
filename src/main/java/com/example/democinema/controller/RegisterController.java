@@ -2,6 +2,7 @@ package com.example.democinema.controller;
 
 import com.example.democinema.dto.UserInsertDTO;
 import com.example.democinema.service.UserService;
+import com.example.democinema.service.exceptions.EntityAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +34,7 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute("user") @Valid UserInsertDTO userInsertDTO) {
+    public String registerUser(@ModelAttribute("user") @Valid UserInsertDTO userInsertDTO) throws EntityAlreadyExistsException {
         userService.insertUser(userInsertDTO);
         return "redirect:/login";
     }

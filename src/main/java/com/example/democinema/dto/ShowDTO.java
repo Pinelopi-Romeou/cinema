@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ShowDTO extends BaseDTO {
 
-    private final String title;
+    private String title;
     private String description;
     private String duration;
     private String director;
@@ -35,28 +35,56 @@ public class ShowDTO extends BaseDTO {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getDuration() {
         return duration;
     }
 
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
     public String getDirector() {
         return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
     }
 
     public String getGenre() {
         return genre;
     }
 
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
     public String getLanguage() {
         return language;
     }
 
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
     public String getImageName() {
         return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 
     public List<ScreeningDTO> getScreenings() {
@@ -67,11 +95,11 @@ public class ShowDTO extends BaseDTO {
         this.screenings = screenings;
     }
 
-    public void setLikes(List<UserDTO> likes) {
-        this.likes = likes;
-    }
-
     public List<UserDTO> getLikes() {
         return likes;
+    }
+
+    public void setLikes(List<UserDTO> likes) {
+        this.likes = likes;
     }
 }

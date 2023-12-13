@@ -31,7 +31,6 @@ public class ReservationServiceImpl implements ReservationService {
         this.screeningRepository = screeningRepository;
     }
 
-    @Transactional
     @Override
     public List<ReservationDTO> getAllReservations() {
         List<ReservationDTO> resDTO = new ArrayList<>();

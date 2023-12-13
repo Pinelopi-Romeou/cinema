@@ -1,12 +1,8 @@
 package com.example.democinema.dto;
 
-import com.example.democinema.model.Reservation;
-import com.example.democinema.model.Show;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import java.util.List;
 
 public class UserInsertDTO {
 
@@ -22,16 +18,6 @@ public class UserInsertDTO {
     @NotBlank(message = "Password cannot be empty")
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,16}$", message = "Invalid password format")
     private String password;
-
-    public UserInsertDTO() {}
-
-    public UserInsertDTO(String firstname, String lastname, String username, String email, String password, List<Show> likedShows, List<Reservation> reservations) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
 
     public String getFirstname() {
         return firstname;

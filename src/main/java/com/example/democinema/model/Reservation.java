@@ -8,17 +8,17 @@ import java.time.LocalDateTime;
 public class Reservation {
 
     @EmbeddedId
-    ReservationId id;
+    private ReservationId id;
 
     @ManyToOne
     @MapsId("userId")
     @JoinColumn(name = "USER_ID")
-    User user;
+    private User user;
 
     @ManyToOne
     @MapsId("screeningId")
     @JoinColumn(name = "SCREENING_ID")
-    Screening screening;
+    private Screening screening;
 
     private LocalDateTime registeredAt = LocalDateTime.now();
 
@@ -31,24 +31,31 @@ public class Reservation {
     public ReservationId getId() {
         return id;
     }
+
     public void setId(ReservationId id) {
         this.id = id;
     }
+
     public User getUser() {
         return user;
     }
+
     public void setUser(User user) {
         this.user = user;
     }
+
     public Screening getScreening() {
         return screening;
     }
+
     public void setScreening(Screening screening) {
         this.screening = screening;
     }
+
     public LocalDateTime getRegisteredAt() {
         return registeredAt;
     }
+
     public void setRegisteredAt(LocalDateTime registeredAt) {
         this.registeredAt = registeredAt;
     }

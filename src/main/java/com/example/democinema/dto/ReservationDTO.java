@@ -1,17 +1,12 @@
 package com.example.democinema.dto;
 
-import com.example.democinema.model.ReservationId;
-import com.example.democinema.model.Screening;
-import com.example.democinema.model.Show;
-import com.example.democinema.model.User;
-
 import java.time.LocalDateTime;
 
 public class ReservationDTO {
 
-    private final LocalDateTime registeredAt;
-    private final ScreeningDTO screening;
-    private final UserDTO user;
+    private LocalDateTime registeredAt;
+    private ScreeningDTO screening;
+    private UserDTO user;
 
     public ReservationDTO(LocalDateTime registeredAt, ScreeningDTO screening, UserDTO user) {
         this.registeredAt = registeredAt;
@@ -23,11 +18,23 @@ public class ReservationDTO {
         return registeredAt;
     }
 
+    public void setRegisteredAt(LocalDateTime registeredAt) {
+        this.registeredAt = registeredAt;
+    }
+
     public ScreeningDTO getScreening() {
         return screening;
     }
 
+    public void setScreening(ScreeningDTO screening) {
+        this.screening = screening;
+    }
+
     public UserDTO getUser() {
         return user;
+    }
+
+    public void setUser(UserDTO user) {
+        this.user = user;
     }
 }

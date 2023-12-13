@@ -52,19 +52,6 @@ public class User {
         this.password = password;
     }
 
-    public User(String firstname, String lastname, String username, String email, String password) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
-
-    public User(Long id, String password) {
-        this.id = id;
-        this.password = password;
-    }
-
     public Long getId() {
         return id;
     }

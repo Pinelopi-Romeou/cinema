@@ -10,11 +10,13 @@ import java.util.List;
 
 public interface UserService {
 
-    UserDTO insertUser(UserInsertDTO dto);
-    void deleteUser(Long id) throws EntityNotFoundException;
+    void insertUser(UserInsertDTO dto) throws EntityAlreadyExistsException;
+
     UserDTO getUserByUsername(String username)throws EntityNotFoundException;
-    UserDTO getUserById(Long id) throws EntityNotFoundException;
+
     List<UserDTO> getAllUsers();
+
     void likeShow(String username, Long showId) throws EntityNotFoundException;
+
     void updatePassword(String username, UpdatePasswordDTO dto) throws EntityNotFoundException;
 }

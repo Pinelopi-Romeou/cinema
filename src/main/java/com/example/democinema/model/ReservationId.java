@@ -8,10 +8,10 @@ import java.io.Serializable;
 public class ReservationId implements Serializable {
 
     @Column(name = "USER_ID")
-    Long userId;
+    private Long userId;
 
     @Column(name = "SCREENING_ID")
-    Long screeningId;
+    private Long screeningId;
 
     public ReservationId() {}
 
@@ -23,12 +23,15 @@ public class ReservationId implements Serializable {
     public Long getUserId() {
         return userId;
     }
+
     public void setUserId(Long userId) {
         this.userId = userId;
     }
+
     public Long getScreeningId() {
         return screeningId;
     }
+
     public void setScreeningId(Long screeningId) {
         this.screeningId = screeningId;
     }

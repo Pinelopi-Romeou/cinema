@@ -1,8 +1,5 @@
 package com.example.democinema.dto;
 
-import com.example.democinema.model.Reservation;
-import com.example.democinema.model.Show;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +9,6 @@ public class UserDTO extends BaseDTO {
     private String lastname;
     private String username;
     private String email;
-    private String password;
     private List<ShowDTO> likedShows = new ArrayList<>();
     private List<ScreeningDTO> reservations = new ArrayList<>();
 
@@ -34,20 +30,32 @@ public class UserDTO extends BaseDTO {
         return firstname;
     }
 
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
     public String getLastname() {
         return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public String getUsername() {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getEmail() {
         return email;
     }
 
-    public String getPassword() {
-        return password;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public List<ShowDTO> getLikedShows() {

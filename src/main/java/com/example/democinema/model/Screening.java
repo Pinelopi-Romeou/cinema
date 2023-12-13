@@ -1,7 +1,6 @@
 package com.example.democinema.model;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,33 +29,48 @@ public class Screening {
 
     public Screening() {}
 
+    public Screening(Date dateTime, double price, Show show) {
+        this.dateTime = dateTime;
+        this.price = price;
+        this.show = show;
+    }
+
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
     public Date getDateTime() {
         return dateTime;
     }
+
     public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
     }
+
     public double getPrice() {
         return price;
     }
+
     public void setPrice(double price) {
         this.price = price;
     }
+
     public Show getShow() {
         return show;
     }
+
     public void setShow(Show show) {
         this.show = show;
     }
+
     public List<Reservation> getReservations() {
         return reservations;
     }
+
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }

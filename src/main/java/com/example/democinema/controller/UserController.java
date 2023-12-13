@@ -12,6 +12,7 @@ import java.security.Principal;
 
 @Controller
 public class UserController {
+
     private final UserService userService;
 
     @Autowired

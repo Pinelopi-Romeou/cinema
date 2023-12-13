@@ -4,6 +4,7 @@ import com.example.democinema.dto.*;
 import com.example.democinema.model.*;
 import com.example.democinema.repository.ShowRepository;
 import com.example.democinema.repository.UserRepository;
+import com.example.democinema.service.exceptions.EntityAlreadyExistsException;
 import com.example.democinema.service.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -32,12 +33,15 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public UserDTO insertUser(UserInsertDTO dto) {
+    public void insertUser(UserInsertDTO dto) throws EntityAlreadyExistsException {
+        User u = userRepository.getByUsername(dto.getUsername());
+        if (u != null) {
+            throw new EntityAlreadyExistsException(User.class, u.getUsername());
+        }
+
         User user = map(dto);
         user.setRole(UserRole.USER);
         userRepository.save(user);
-
-        return map(user);
     }
 
     @Transactional
@@ -48,28 +52,6 @@ public class UserServiceImpl implements UserService {
             throw new EntityNotFoundException(User.class, username);
         }
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
-    }
-
-    @Override
-    public void deleteUser(Long id) throws EntityNotFoundException {
-        Optional<User> user = userRepository.findById(id);
-        if (user.isPresent()) {
-        userRepository.deleteById(id);
-    } else {
-        throw new EntityNotFoundException(User.class, 0L);
-        }
-    }
-
-    @Transactional
-    @Override
-    public UserDTO getUserById(Long id) throws EntityNotFoundException {
-            Optional<User> user = userRepository.findById(id);
-            if (user.isPresent()) {
-                User u = user.get();
-                return map(u);
-            } else {
-                throw new EntityNotFoundException(User.class, id);
-            }
     }
 
     @Override

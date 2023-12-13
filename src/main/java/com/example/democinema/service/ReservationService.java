@@ -8,5 +8,6 @@ import java.util.List;
 public interface ReservationService {
 
     void createReservation(String username, Long screeningId) throws EntityNotFoundException;
+
     List<ReservationDTO> getAllReservations();
 }

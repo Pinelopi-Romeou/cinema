@@ -10,7 +10,6 @@ public abstract class BaseDTO {
     public BaseDTO(Long id) {
         this.id = id;
     }
-
     public Long getId() {
         return id;
     }

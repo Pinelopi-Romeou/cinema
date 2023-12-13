@@ -25,11 +25,23 @@ public class ScreeningDTO extends BaseDTO {
         return dateTime;
     }
 
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
+    }
+
     public double getPrice() {
         return price;
     }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public ShowDTO getShow() {
         return show;
+    }
+
+    public void setShow(ShowDTO show) {
+        this.show = show;
     }
 }
