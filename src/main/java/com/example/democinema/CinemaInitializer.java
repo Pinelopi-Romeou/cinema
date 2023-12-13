@@ -38,12 +38,12 @@ public class CinemaInitializer {
         showRepository.save(s2);
         showRepository.save(s3);
 
-        Screening scr1 = new Screening(Date.from(Instant.parse("2023-10-10T11:10:00")), 15.0, s1);
-        Screening scr2 = new Screening(Date.from(Instant.parse("2023-11-10T11:10:00")), 12.0, s1);
-        Screening scr3 = new Screening(Date.from(Instant.parse("2023-10-10T11:10:00")), 17.0, s2);
-        Screening scr4 = new Screening(Date.from(Instant.parse("2023-10-10T11:10:00")), 11.0, s2);
-        Screening scr5 = new Screening(Date.from(Instant.parse("2023-09-10T11:10:00")), 19.0, s3);
-        Screening scr6 = new Screening(Date.from(Instant.parse("2023-07-10T11:10:00")), 15.0, s3);
+        Screening scr1 = new Screening(Date.from(Instant.parse("2023-10-10T11:10:00Z")), 15.0, s1);
+        Screening scr2 = new Screening(Date.from(Instant.parse("2023-11-10T11:10:00Z")), 12.0, s1);
+        Screening scr3 = new Screening(Date.from(Instant.parse("2023-10-10T11:10:00Z")), 17.0, s2);
+        Screening scr4 = new Screening(Date.from(Instant.parse("2023-10-10T11:10:00Z")), 11.0, s2);
+        Screening scr5 = new Screening(Date.from(Instant.parse("2023-09-10T11:10:00Z")), 19.0, s3);
+        Screening scr6 = new Screening(Date.from(Instant.parse("2023-07-10T11:10:00Z")), 15.0, s3);
 
         screeningRepository.save(scr1);
         screeningRepository.save(scr2);
