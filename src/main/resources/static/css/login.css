@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.card {
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid white;
+}
+
+.btn-login {
+    border: 3px solid aqua;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.btn-login:hover {
+    color: black;
+    background-color: aqua;
+    border: none;
+}
+
+.signup-text {
+    font-weight: bold;
+    font-size: large;
+}
+
+.bg-img {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    filter: brightness(0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.alert {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ff9800;
+    width: 400px;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+}

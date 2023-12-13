@@ -1,0 +1,372 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    height: 3000px;
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.buttons .btn {
+    margin-left: 10px;
+    border: 2px solid aqua;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.30);
+}
+
+.buttons .btn:hover, .btn-contact:hover {
+    color: black;
+    background-color: aqua;
+    border: none;
+}
+
+.navbar {
+    transition: all 0.5s;
+}
+
+.navbar-scrolled {
+    background-color: black;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.nav-link {
+    position: relative;
+    margin: 0 25px;
+    color: white;
+    font-size: large;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.nav-link::after {
+    content: '';
+    opacity: 0;
+    transition: all 0.2s;
+    height: 1.5px;
+    width: 100%;
+    background-color: aqua;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.nav-link:hover::after {
+    opacity: 1;
+}
+
+.dropdown-menu {
+    background-color: transparent;
+}
+
+.dropdown-menu>li {
+    border-bottom: 1px solid aqua;
+}
+
+.dropdown-menu>li:last-of-type {
+    border-bottom: none;
+}
+
+.dropdown-item {
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.dropdown-item:hover {
+    background-color: transparent;
+}
+
+.bg-img {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 18rem;
+    margin-left: 10rem;
+    margin-bottom: 400px;
+}
+
+.header-group {
+    text-align: center;
+}
+
+.title {
+    font-size: 60px;
+    color: white;
+    font-weight: 100;
+    border: 2px solid white;
+    padding: 2rem;
+    max-width: 600px;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: rgba(0, 0, 0, 0.40);
+}
+
+.btn-visit {
+    margin-top: 20px;
+    width: 175px;
+    height: 45px;
+    transition: all 0.4s;
+    background-color: aqua;
+}
+
+.btn-visit:hover {
+    background-color: aqua;
+    transform: scale(1.1);
+}
+
+.background {
+    background-color: rgba(0, 0, 0, 0.758);
+}
+
+.about, .shows, .contact {
+    padding: 8rem 0;
+}
+
+.about-title, .shows-title, .contact-title {
+    font-size: 36px;
+    margin-bottom: 8rem;
+    color: white;
+    position: relative;
+}
+
+.about-title::after, .shows-title::after, .contact-title::after {
+    content: '';
+    position: absolute;
+    width: 12%;
+    height: 3px;
+    display: block;
+    margin-top: 1rem;
+    background-color: aqua;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.shows-subtitle {
+    font-size: 20px;
+    margin-top: 3rem;
+    color: white;
+}
+
+.about-image {
+    width: 550px;
+    height: 350px;
+    border: 3px solid white;
+}
+
+.about-text {
+    max-width: 600px;
+    color: white;
+    line-height: 1.8;
+}
+
+.divider {
+    width: 75%;
+    border: 1px solid white;
+    margin: 20px auto;
+}
+
+.card-container {
+    width: 350px;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid white;
+    margin: 0 20px;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.card-body {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: -100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.607);
+    backdrop-filter: blur(3px);
+    border-radius: 15px;
+    color: white;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 2s;
+}
+
+.card-title {
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.card-info {
+    font-size: 16px;
+    line-height: 25px;
+    margin: 40px 0;
+    font-weight: 400;
+}
+
+.card-container:hover .card-body {
+    right: 0;
+}
+
+.form-control {
+    width: 90%;
+}
+
+.form-label {
+    color: white;
+}
+
+.contact-info>span {
+    color: white;
+    font-size: large;
+    margin-right: 2rem;
+}
+
+.btn-contact {
+    border: 2px solid aqua;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.30);
+}
+
+footer {
+    color: rgba(255, 255, 255, 0.67);
+    font-size: 15px;
+}
+
+
+.profile .fa-user {
+    color: white;
+    font-size: 20px;
+    margin: 0 20px;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.about-img {
+    margin-right: 15px;
+}
+
+.about-content {
+    margin-left: 15px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.map {
+    margin-right: 80px;
+}
+
+.contact-form {
+    margin-left: 80px;
+}
+
+@media (min-width: 576px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .about-image {
+        width: 450px;
+        height: 270px;
+    }
+
+    .about-text {
+        max-width: 600px;
+        line-height: 1.6;
+    }
+    .title {
+        font-size: 50px;
+        font-weight: 80;
+    }
+}
+
+@media (max-width: 995px) {
+    .about-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-img {
+        margin-top: 15px;
+        margin-right: 0;
+    }
+
+    .about-content {
+        margin-top: 15px;
+        margin-left: 0;
+    }
+
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .map {
+        margin-top: 15px;
+        margin-right: 0;
+    }
+
+    .contact-form {
+        margin-top: 15px;
+        margin-left: 0;
+    }
+    .header {
+        margin: 290px 0 200px 130px;
+    }
+}
+
+@media (max-width: 850px) {
+    .header {
+        visibility: hidden;
+    }
+}

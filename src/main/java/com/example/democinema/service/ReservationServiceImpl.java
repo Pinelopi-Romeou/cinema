@@ -1,0 +1,84 @@
+package com.example.democinema.service;
+
+import com.example.democinema.dto.ReservationDTO;
+import com.example.democinema.dto.ScreeningDTO;
+import com.example.democinema.dto.UserDTO;
+import com.example.democinema.model.Reservation;
+import com.example.democinema.model.ReservationId;
+import com.example.democinema.model.Screening;
+import com.example.democinema.model.User;
+import com.example.democinema.repository.ReservationRepository;
+import com.example.democinema.repository.ScreeningRepository;
+import com.example.democinema.repository.UserRepository;
+import com.example.democinema.service.exceptions.EntityNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class ReservationServiceImpl implements ReservationService {
+
+    private final ReservationRepository reservationRepository;
+    private final UserRepository userRepository;
+    private final ScreeningRepository screeningRepository;
+
+    @Autowired
+    public ReservationServiceImpl(ReservationRepository reservationRepository, UserRepository userRepository, ScreeningRepository screeningRepository) {
+        this.reservationRepository = reservationRepository;
+        this.userRepository = userRepository;
+        this.screeningRepository = screeningRepository;
+    }
+
+    @Transactional
+    @Override
+    public List<ReservationDTO> getAllReservations() {
+        List<ReservationDTO> resDTO = new ArrayList<>();
+        List<Reservation> reservations = reservationRepository.findAll();
+
+        for (Reservation r : reservations) {
+            resDTO.add(map(r));
+        }
+        return resDTO;
+    }
+
+    @Transactional
+    @Override
+    public void createReservation(String username, Long screeningId) throws EntityNotFoundException {
+        User user = userRepository.getByUsername(username);
+        if (user == null) {
+            throw new EntityNotFoundException(User.class, username);
+        }
+        Optional<Screening> screening = screeningRepository.findById(screeningId);
+        if (screening.isEmpty()) {
+            throw new EntityNotFoundException(Screening.class, screeningId);
+        }
+
+        ReservationId reservationId = new ReservationId(user.getId(), screening.get().getId());
+
+        Reservation reservation = new Reservation(reservationId);
+
+        reservation.setScreening(screening.get());
+        reservation.setUser(user);
+        reservationRepository.save(reservation);
+    }
+
+    private ScreeningDTO map(Screening screening) {
+        return new ScreeningDTO(screening.getId());
+    }
+
+    private ReservationDTO map(Reservation reservation) {
+        return new ReservationDTO(reservation.getId(), reservation.getRegisteredAt(), map(reservation.getScreening()), map(reservation.getUser()));
+    }
+
+//    private ReservationDTO mapReservations(Reservation reservation) {
+//        return new ReservationDTO(reservation.getRegisteredAt(), map(reservation.getScreening()));
+//    }
+
+    private UserDTO map(User user) {
+        return new UserDTO(user.getId());
+    }
+}
