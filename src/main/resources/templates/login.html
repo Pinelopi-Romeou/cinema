@@ -29,7 +29,7 @@
                                 <p class="text-white-50 mb-5">Please enter your username and password!</p>
                                 <div class="form-outline mb-3">
                                     <input name="username" type="text" id="username" placeholder="Username"
-                                           class="form-box form-control form-control-lg" autofocus />
+                                           class="form-box form-control form-control-lg" autofocus/>
                                     <label class="form-label" for="username"></label>
                                 </div>
                                 <div class="form-outline mb-1">
@@ -54,7 +54,6 @@
             </div>
         </div>
     </form>
-    <div th:if="${param.error}" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}" class="alert rounded"></div>
-    </div>
+</div>
 </body>
 </html>

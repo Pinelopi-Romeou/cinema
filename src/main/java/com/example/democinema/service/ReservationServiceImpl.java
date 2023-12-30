@@ -31,6 +31,10 @@ public class ReservationServiceImpl implements ReservationService {
         this.screeningRepository = screeningRepository;
     }
 
+    /**
+     * Finds and returns all reservations
+     * @return a list of reservations
+     */
     @Override
     public List<ReservationDTO> getAllReservations() {
         List<ReservationDTO> resDTO = new ArrayList<>();
@@ -42,6 +46,12 @@ public class ReservationServiceImpl implements ReservationService {
         return resDTO;
     }
 
+    /**
+     * Creates a new reservation
+     * @param username the username of the user that makes the reservation
+     * @param screeningId the id of the screening that is being reserved
+     * @throws EntityNotFoundException if the user or the screening is not found
+     */
     @Transactional
     @Override
     public void createReservation(String username, Long screeningId) throws EntityNotFoundException {

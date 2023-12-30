@@ -28,7 +28,7 @@
                                 <div class="row mb-2">
                                     <div class="col">
                                         <div class="form-outline">
-                                            <label class="form-label" for="firstname"> <!--th:text="#{label.user.firstname}"--></label>
+                                            <label class="form-label" for="firstname"></label>
                                             <input type="text" id="firstname" placeholder="Firstname" class="form-control form-control-lg" th:field="*{firstname}" autofocus />
                                             <p th:each="error: ${#fields.errors('firstname')}" th:text="${error}">Validation error</p>
                                         </div>
@@ -41,7 +41,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="form-outline mb-2">
                                     <label class="form-label" for="username"></label>
                                     <input type="text" id="username" placeholder="Username" class="form-box form-control form-control-lg" th:field="*{username}" />
@@ -69,6 +68,5 @@
             </div>
         </div>
     </form>
-
 </body>
 </html>

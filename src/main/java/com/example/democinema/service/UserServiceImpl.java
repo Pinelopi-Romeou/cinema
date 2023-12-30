@@ -31,6 +31,11 @@ public class UserServiceImpl implements UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * Creates a new user
+     * @param dto the user
+     * @throws EntityAlreadyExistsException if the username of the user being inserted already exists
+     */
     @Transactional
     @Override
     public void insertUser(UserInsertDTO dto) throws EntityAlreadyExistsException {
@@ -44,6 +49,12 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    /**
+     * Updates the password of the user
+     * @param username the username of the user being updated
+     * @param dto the user
+     * @throws EntityNotFoundException if user is not found
+     */
     @Transactional
     @Override
     public void updatePassword(String username, UpdatePasswordDTO dto) throws EntityNotFoundException {
@@ -54,6 +65,12 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
     }
 
+    /**
+     * Finds and returns a user based on their username
+     * @param username the username
+     * @return the user
+     * @throws EntityNotFoundException if user is not found
+     */
     @Override
     public UserDTO getUserByUsername(String username) throws EntityNotFoundException {
         User user = userRepository.getByUsername(username);
@@ -64,6 +81,10 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    /**
+     * Finds and returns a list of all users
+     * @return all users
+     */
     @Override
     public List<UserDTO> getAllUsers() {
         List<User> users = userRepository.findAll();
@@ -74,6 +95,12 @@ public class UserServiceImpl implements UserService {
         return userDTOS;
     }
 
+    /**
+     * Adds a show to the selected user
+     * @param username the username used to find the user
+     * @param showId the ID of the show used to find the show
+     * @throws EntityNotFoundException if the user or the show is not found
+     */
     @Transactional
     @Override
     public void likeShow(String username, Long showId) throws EntityNotFoundException {

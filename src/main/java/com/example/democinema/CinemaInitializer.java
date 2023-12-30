@@ -1,9 +1,7 @@
 package com.example.democinema;
 
-import com.example.democinema.model.Reservation;
 import com.example.democinema.model.Screening;
 import com.example.democinema.model.Show;
-import com.example.democinema.repository.ReservationRepository;
 import com.example.democinema.repository.ScreeningRepository;
 import com.example.democinema.repository.ShowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +24,8 @@ public class CinemaInitializer {
         this.screeningRepository = screeningRepository;
     }
 
-    @PostConstruct
+    // Use this to initialize
+    // @PostConstruct
     public void init() {
         Show s1 = new Show("Treasure Planet", "Jim Hawkins is a teenager who finds the map of a great treasure hidden by a space pirate. Together with some friends, he sets off in a large spaceship, shaped like a caravel, on his quest.",
                 "95", "Ron Clements, John Musker", "animation", "english", "animation");

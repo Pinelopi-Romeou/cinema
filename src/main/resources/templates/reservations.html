@@ -18,7 +18,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-        <a href="#" class="navbar-brand"><img class="logo" src="/images/logo.png" alt="logo">Space</a>
+        <a href="/" class="navbar-brand"><img class="logo" src="/images/logo.png" alt="logo">Space</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,45 +41,41 @@
         <div class="buttons">
             <a href="/login" type="button" class="btn btn-login btn-outline-light px-3">Login</a>
             <a href="/register" type="button" class="btn btn-signup btn-outline-light px-3">Sign Up</a>
+            <a href="/logout" type="button" class="btn btn-logout btn-outline-light px-3">Logout</a>
         </div>
         <a href="/profile" class="profile" type="button"><i class="fa-regular fa-user"></i></a>
     </div>
 </nav>
-
-
 <div class="reservations container">
     <h2 class="title text-center">Reservations</h2>
-    <div class="row justify-content-center text-align-center">
-        <div th:each="reservation : ${reservations}" class="row reservation text-center mb-2">
-            <div>
-                <span>Registered At: </span>
-                <span th:text="${reservation.registeredAt}"></span>
-            </div>
-            <div>
-                <span>Screening ID: </span>
-                <span th:text="${reservation.screening.id}"></span>
-            </div>
-            <div>
-                <span>Screening price: </span>
-                <span th:text="${reservation.screening.price}"></span>
-            </div>
-            <div>
-                <span>Show title: </span>
-                <span th:text="${reservation.screening.show.title}"></span>
-            </div>
-            <div>
-                <span>User ID: </span>
-                <span th:text="${reservation.user.id}"></span>
-            </div>
-            <div>
-                <span>Username: </span>
-                <span th:text="${reservation.user.username}"></span>
-            </div>
-            <div>
-                <span>User email: </span>
-                <span th:text="${reservation.user.email}"></span>
-            </div>
-        </div>
+    <div th:each="reservation : ${reservations}" class="reservation row">
+        <table>
+            <tr>
+                <th class="col-3">User ID</th>
+                <th class="col-3">Username</th>
+                <th class="col-3">E-mail</th>
+                <th class="col-3">Registered At</th>
+            </tr>
+            <tr>
+                <td th:text="${reservation.user.id}"></td>
+                <td th:text="${reservation.user.username}"></td>
+                <td th:text="${reservation.user.email}"></td>
+                <td th:text="${reservation.registeredAt}"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th class="col-3">Screening ID</th>
+                <th class="col-3">Price</th>
+                <th class="col-6">Show title</th>
+            </tr>
+            <tr>
+                <td th:text="${reservation.screening.id}"></td>
+                <td th:text="${reservation.screening.price}"></td>
+                <td th:text="${reservation.screening.show.title}"></td>
+            </tr>
+        </table>
+        <hr class="divider">
     </div>
 </div>
 <footer>

@@ -22,6 +22,12 @@ public class ShowServiceImpl implements ShowService {
         this.showRepository = showRepository;
     }
 
+    /**
+     * Finds a show by its ID
+     * @param id the ID of the show
+     * @return the show
+     * @throws EntityNotFoundException if the show is not found
+     */
     @Override
     public ShowDTO getShowById(Long id) throws EntityNotFoundException {
             Optional<Show> show = showRepository.findById(id);
@@ -33,6 +39,10 @@ public class ShowServiceImpl implements ShowService {
             }
     }
 
+    /**
+     * Finds and returns a list of all shows
+     * @return all shows
+     */
     @Override
     public List<ShowDTO> getAllShows() {
         List<ShowDTO> showDTOS = new ArrayList<>();

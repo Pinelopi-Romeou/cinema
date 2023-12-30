@@ -18,7 +18,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-        <a href="#" class="navbar-brand"><img class="logo" src="/images/logo.png" alt="logo">Space</a>
+        <a href="/" class="navbar-brand"><img class="logo" src="/images/logo.png" alt="logo">Space</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,47 +41,69 @@
         <div class="buttons">
             <a href="/login" type="button" class="btn btn-login btn-outline-light px-3">Login</a>
             <a href="/register" type="button" class="btn btn-signup btn-outline-light px-3">Sign Up</a>
+            <a href="/logout" type="button" class="btn btn-logout btn-outline-light px-3">Logout</a>
         </div>
     </div>
 </nav>
 <div class="container">
     <h1 class="title">Users</h1>
-    <div th:each="user : ${users}" class="row user text-center">
-        <div>
-            <span>ID: </span>
-            <span th:text="${user.id}"></span>
-        </div>
-        <div>
-            <span>Firstname: </span>
-            <span th:text="${user.firstname}"></span>
-        </div>
-        <div>
-            <span>Lastname: </span>
-            <span th:text="${user.lastname}"></span>
-        </div>
-        <div>
-            <span>Username: </span>
-            <span th:text="${user.username}"></span>
-        </div>
-        <div>
-            <span>Email: </span>
-            <span th:text="${user.email}"></span>
-        </div>
+    <div th:each="user : ${users}" class="user row">
+        <table>
+            <tr>
+                <th class="col-2">ID</th>
+                <th class="col-2">Firstname</th>
+                <th class="col-2">Lastname</th>
+                <th class="col-2">Username</th>
+                <th class="col-2">E-mail</th>
+            </tr>
+            <tr>
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.firstname}"></td>
+                <td th:text="${user.lastname}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.email}"></td>
+            </tr>
+        </table>
+        <hr class="divider">
     </div>
 </div>
-<script>
-    const navEl = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY >= 56) {
-            navEl.classList.add('navbar-scrolled');
-        } else if (window.scrollY < 56) {
-            navEl.classList.remove('navbar-scrolled');
-        }
-    });
-</script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-</script>
+    <!--    <div th:each="user : ${users}" class="row user text-center">-->
+    <!--        <div>-->
+    <!--            <span>ID: </span>-->
+    <!--            <span th:text="${user.id}"></span>-->
+    <!--        </div>-->
+    <!--        <div>-->
+    <!--            <span>Firstname: </span>-->
+    <!--            <span th:text="${user.firstname}"></span>-->
+    <!--        </div>-->
+    <!--        <div>-->
+    <!--            <span>Lastname: </span>-->
+    <!--            <span th:text="${user.lastname}"></span>-->
+    <!--        </div>-->
+    <!--        <div>-->
+    <!--            <span>Username: </span>-->
+    <!--            <span th:text="${user.username}"></span>-->
+    <!--        </div>-->
+    <!--        <div>-->
+    <!--            <span>Email: </span>-->
+    <!--            <span th:text="${user.email}"></span>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
+    <script>
+        const navEl = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY >= 56) {
+                navEl.classList.add('navbar-scrolled');
+            } else if (window.scrollY < 56) {
+                navEl.classList.remove('navbar-scrolled');
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
 </body>
 </html>
